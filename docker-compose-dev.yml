@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  monster:
+    image: openjdk:8-alpine
+    container_name: monster
+    ports:
+      - 8083:8083
+    entrypoint: 'java -jar /opt/app/monster-service.jar'
+    volumes:
+      - ./monster-service/target/monster-service.jar:/opt/app/monster-service.jar
