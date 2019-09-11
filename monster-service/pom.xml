@@ -9,47 +9,36 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sabbath.say</groupId>
-    <artifactId>say-service</artifactId>
+    <artifactId>monster-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>say-service</name>
+    <name>monster-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
         <kotlin.version>1.2.71</kotlin.version>
-        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-        <swagger.version>2.9.2</swagger.version>
     </properties>
 
     <dependencies>
-        <!--Feign-->
+        <!--Cowsay-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.github.ricksbrown</groupId>
+            <artifactId>cowsay</artifactId>
+            <version>1.1.0</version>
+            <classifier>lib</classifier>
         </dependency>
-        <!--Actuator-->
+        <dependency>
+            <groupId>com.github.ricksbrown</groupId>
+            <artifactId>cowjar-extra</artifactId>
+            <version>1.1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--Swagger-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-kotlin</artifactId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -66,18 +55,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>

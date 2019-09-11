@@ -12,5 +12,6 @@
     <modules>
         <module>quote-service</module>
         <module>say-service</module>
+        <module>monster-service</module>
     </modules>
 </project>
