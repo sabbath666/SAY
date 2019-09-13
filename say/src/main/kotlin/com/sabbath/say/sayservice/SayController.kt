@@ -11,8 +11,9 @@ class SayController(
         val monsterClient: MonsterClient,
         val quoteClient: QuoteClient
 ) {
-    @GetMapping("/")
+    @GetMapping
     fun say(): String {
+        println("===> say")
         val message = quoteClient.getQuote()!!
         val result=monsterClient.say(message)!!
         return result
