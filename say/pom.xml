@@ -11,7 +11,7 @@
     <groupId>com.sabbath.say</groupId>
     <artifactId>say-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>say-service</name>
+    <name>say</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

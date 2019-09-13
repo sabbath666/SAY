@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sabbath.say</groupId>
-    <artifactId>say</artifactId>
+    <artifactId>say-app</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>quote-service</module>
-        <module>say-service</module>
-        <module>monster-service</module>
+        <module>quote</module>
+        <module>say</module>
+        <module>monster</module>
     </modules>
 </project>
