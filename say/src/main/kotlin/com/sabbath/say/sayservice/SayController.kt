@@ -13,17 +13,15 @@ class SayController(
 ) {
     @GetMapping("/say")
     fun say(): String {
-        println("===> say")
         var result = ""
         try {
             val message = quoteClient.getQuote()!!
-            println("message")
             result = monsterClient.say(message)!!
             println(result)
         } catch (ex: Exception) {
             println(ex)
         }
-        return result
+        return "******************************\n$result"
     }
 
     @GetMapping("/test")
