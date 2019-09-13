@@ -14,7 +14,7 @@ stages:
       shellScript: pwd
   - runScriptConfig:
       image: alpine
-      shellScript: ls -la
+      shellScript: ls -la ./monster
 - name: docker-image
   steps:
   - publishImageConfig:
