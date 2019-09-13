@@ -20,6 +20,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./monster-dockerfile
       buildContext: .
+      tag: monster:${CICD_GIT_COMMIT}
+      pushRemote: true
+      registry: index.docker.io
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
