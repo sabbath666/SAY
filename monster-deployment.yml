@@ -1,0 +1,48 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  namespace: default
+  name: monster
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 10%
+      maxSurge: 50%
+  template:
+    metadata:
+      labels:
+        app: monster
+        tier: backend
+        track: test
+    spec:
+      containers:
+        - name: monster
+          image: sabbath666/monster:${CICD_GIT_COMMIT}
+          imagePullPolicy: Always
+          ports:
+            - containerPort:  8080
+
+#        livenessProbe:
+#          httpGet:
+#            path: /actuator/health
+#            port: 8881
+#          initialDelaySeconds: 30
+#          timeoutSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monster
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: fcs-processor
+    tier: backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 9999

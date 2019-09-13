@@ -9,13 +9,7 @@ stages:
   - runScriptConfig:
       image: maven:3.6.2-jdk-8
       shellScript: cd monster;mvn clean package;
-  - runScriptConfig:
-      image: alpine
-      shellScript: pwd
-  - runScriptConfig:
-      image: alpine
-      shellScript: ls -la ./monster
-- name: docker-image
+- name: docker
   steps:
   - publishImageConfig:
       dockerfilePath: ./monster-dockerfile
@@ -23,5 +17,12 @@ stages:
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
+- name: deploy
+  steps:
+    - applyYamlConfig:
+        path: ./monster-deployment.yaml
+    - applyYamlConfig:
+        path: ./monster-deployment.yaml
+
 timeout: 60
 notification: {}
