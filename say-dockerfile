@@ -1,0 +1,3 @@
+FROM openjdk:8-alpine
+COPY say/target/say.jar say.jar
+ENTRYPOINT ["java","-jar","say.jar"]

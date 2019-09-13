@@ -1,7 +1,7 @@
 server:
-  port: 8081
+  port: 8080
 spring:
   application:
     name: say-service
-monster.url: "http://localhost:8083"
-quote.url:  "http://localhost:8082"
+monster.url: "http://monster:8080"
+quote.url:  "http://say:8080"

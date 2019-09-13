@@ -1,0 +1,3 @@
+FROM openjdk:8-alpine
+COPY quote/target/quote.jar quote.jar
+ENTRYPOINT ["java","-jar","quote.jar"]
