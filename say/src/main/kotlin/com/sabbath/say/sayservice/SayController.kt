@@ -21,7 +21,7 @@ class SayController(
         } catch (ex: Exception) {
             println(ex)
         }
-        return "******************************\n$result"
+        return result
     }
 
     @GetMapping("/test")
