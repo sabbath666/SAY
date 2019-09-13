@@ -11,7 +11,7 @@ stages:
       shellScript: cd monster clean package;
   - runScriptConfig:
       image: alpine
-      shellScript: ll monster/target
+      shellScript: ls -la monster/target
 - name: docker-image
   steps:
   - publishImageConfig:
