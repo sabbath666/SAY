@@ -14,43 +14,10 @@ stages:
       - publishImageConfig:
           dockerfilePath: ./monster-dockerfile
           buildContext: .
-          tag: fcs-core:${CICD_GIT_COMMIT}
-          pushRemote: true
-          registry: repodev.cib.ru:8083
+#          registry: repodev.cib.ru:8083
         env:
           PLUGIN_DEBUG: "true"
           PLUGIN_INSECURE: "true"
-        when:
-          branch:
-            include:
-              - test
-      - publishImageConfig:
-          dockerfilePath: ./fcs-processor-dockerfile
-          buildContext: .
-          tag: fcs-processor:${CICD_GIT_COMMIT}
-          pushRemote: true
-          registry: repodev.cib.ru:8083
-        env:
-          PLUGIN_DEBUG: "true"
-          PLUGIN_INSECURE: "true"
-        when:
-          branch:
-            include:
-              - test
-  - name: deploy to TEST
-    steps:
-      - applyYamlConfig:
-          path: ./fcs-processor-deployment.yaml
-        when:
-          branch:
-            include:
-              - test
-      - applyYamlConfig:
-          path: ./fcs-core-deployment.yaml
-        when:
-          branch:
-            include:
-              - test
 timeout: 60
 notification:
   recipients:
