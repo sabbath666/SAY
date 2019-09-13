@@ -45,4 +45,4 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
-      nodePort: 9999
+      nodePort: 30001
