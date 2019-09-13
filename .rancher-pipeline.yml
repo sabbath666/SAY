@@ -9,7 +9,7 @@ stages:
       - runScriptConfig:
           image: maven:3.6.2-jdk-8
           shellScript: cd monster clean package;
-  - name: docker
+  - name: docker-image
     steps:
       - publishImageConfig:
           dockerfilePath: ./monster-dockerfile
@@ -19,12 +19,3 @@ stages:
           PLUGIN_DEBUG: "true"
           PLUGIN_INSECURE: "true"
 timeout: 60
-notification:
-  recipients:
-    - recipient: s.zadorozhniy@centrinvest.ru
-      notifier: c-kshgl:n-g7hch
-    - recipient: m.sokolov@centrinvest.ru
-      notifier: c-kshgl:n-g7hch
-  condition:
-    - Success
-    - Failed
