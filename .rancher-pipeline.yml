@@ -1,21 +1,24 @@
 stages:
-  - name: compile
-    steps:
-      - runScriptConfig:
-          image: maven:3.6.2-jdk-8
-          shellScript: cd monster -Dskiptests clean compile;
-  - name: test
-    steps:
-      - runScriptConfig:
-          image: maven:3.6.2-jdk-8
-          shellScript: cd monster clean package;
-  - name: docker-image
-    steps:
-      - publishImageConfig:
-          dockerfilePath: ./monster-dockerfile
-          buildContext: .
-#          registry: repodev.cib.ru:8083
-        env:
-          PLUGIN_DEBUG: "true"
-          PLUGIN_INSECURE: "true"
+- name: compile
+  steps:
+  - runScriptConfig:
+      image: maven:3.6.2-jdk-8
+      shellScript: cd monster -Dskiptests clean compile;
+- name: test
+  steps:
+  - runScriptConfig:
+      image: maven:3.6.2-jdk-8
+      shellScript: cd monster clean package;
+  - runScriptConfig:
+      image: alpine
+      shellScript: ll monster/target
+- name: docker-image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./monster-dockerfile
+      buildContext: .
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
 timeout: 60
+notification: {}
