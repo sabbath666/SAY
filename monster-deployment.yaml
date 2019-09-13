@@ -24,7 +24,6 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort:  8080
-
 #        livenessProbe:
 #          httpGet:
 #            path: /actuator/health
@@ -40,7 +39,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: fcs-processor
+    app: monster
     tier: backend
   ports:
     - protocol: TCP
