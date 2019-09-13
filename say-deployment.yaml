@@ -5,7 +5,7 @@ metadata:
   namespace: default
   name: say
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -24,12 +24,18 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort:  8080
-#        livenessProbe:
-#          httpGet:
-#            path: /actuator/health
-#            port: 8881
-#          initialDelaySeconds: 30
-#          timeoutSeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 15
+          timeoutSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 15
+          timeoutSeconds: 15
 ---
 apiVersion: v1
 kind: Service
