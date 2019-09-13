@@ -14,8 +14,16 @@ class SayController(
     @GetMapping
     fun say(): String {
         println("===> say")
-        val message = quoteClient.getQuote()!!
-        val result=monsterClient.say(message)!!
+        var result=""
+        try {
+            val message = quoteClient.getQuote()!!
+            println("message")
+            result = monsterClient.say(message)!!
+            println(result)
+        }
+        catch (ex:Exception)
+        {
+            println(ex)}
         return result
     }
 
