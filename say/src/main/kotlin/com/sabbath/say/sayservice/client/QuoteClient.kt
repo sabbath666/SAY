@@ -16,7 +16,7 @@ class QuoteClient(
                     String::class.java
             )
         } catch (e: Exception) {
-            Base64.getEncoder().encodeToString(e.message!!.substring(0, 100).plus("...ЭТО ПИПЕЦ!!").toByteArray())
+            e.message!!.substring(0, 100).plus("...FUCK!!")
         }
         return result;
     }

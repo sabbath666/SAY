@@ -12,6 +12,7 @@ class QuoteController(
 ) {
     @GetMapping("/quote")
     fun quote():String{
+        println("quote")
         return quoteService.quote()
     }
 }
