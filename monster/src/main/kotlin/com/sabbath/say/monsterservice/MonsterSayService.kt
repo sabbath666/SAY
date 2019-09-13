@@ -8,8 +8,8 @@ class MonsterSayService {
 
     fun say(message: String): String {
         val cowExecutor = CowExecutor().apply {
-//            setCowfile("vader")
             setMessage(message)
+            setHtml(true)
         }
         return cowExecutor.execute()
     }
