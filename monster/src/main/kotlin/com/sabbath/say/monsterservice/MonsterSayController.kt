@@ -23,6 +23,7 @@ class MonsterSayController(
 
     @PostMapping("/say")
     fun say(@RequestBody message: String): String {
+        val quote = String(Base64.getDecoder().decode(message))
         val result = monsterSayService.say(message)
         println(result)
         return result
