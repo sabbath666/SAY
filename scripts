@@ -1,0 +1,1 @@
+watch --no-title -n 1 "curl http://138.197.53.51:30003/say|html2text -utf8 -nometa -style pretty"
