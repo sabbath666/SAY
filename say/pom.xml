@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sabbath.say</groupId>
-    <artifactId>say-service</artifactId>
+    <artifactId>say</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>say</name>
     <description>Demo project for Spring Boot</description>
