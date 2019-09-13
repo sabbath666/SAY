@@ -3,12 +3,12 @@ stages:
     steps:
       - runScriptConfig:
           image: maven:3.6.2-jdk-8
-          shellScript: cd monster-service -Dskiptests clean compile;
+          shellScript: cd monster -Dskiptests clean compile;
   - name: test
     steps:
       - runScriptConfig:
           image: maven:3.6.2-jdk-8
-          shellScript: cd monster-service clean package;
+          shellScript: cd monster clean package;
   - name: docker
     steps:
       - publishImageConfig:
