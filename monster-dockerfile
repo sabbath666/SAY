@@ -1,3 +1,3 @@
-FROM repodev.cib.ru:8083/openjdk:8-alpine
+FROM openjdk:8-alpine
 COPY monster/target/monster.jar monster.jar
 ENTRYPOINT ["java","-jar","monster.jar"]
