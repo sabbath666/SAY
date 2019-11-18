@@ -2,7 +2,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  namespace: default
+  namespace: dev
   name: say
 spec:
   replicas: 2
@@ -41,7 +41,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: say
-  namespace: default
+  namespace: dev
 spec:
   type: NodePort
   selector:
