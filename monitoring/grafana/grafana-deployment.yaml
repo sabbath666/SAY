@@ -29,10 +29,10 @@ spec:
       volumes:
         - name: grafana-conf
           hostPath:
-            path: /home/sabbath/rancher/grafana/conf
+            path: /home/sabbath/rancher/monitoring/grafana/conf
         - name: grafana-data
           hostPath:
-            path: /home/sabbath/rancher/grafana/data
+            path: /home/sabbath/rancher/monitoring/grafana/data
 ---
 apiVersion: v1
 kind: Service
