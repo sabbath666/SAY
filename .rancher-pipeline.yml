@@ -40,16 +40,27 @@ stages:
         env:
           PLUGIN_DEBUG: "true"
           PLUGIN_INSECURE: "true"
-  - name: deploy
+  - name: deploy monster
     steps:
       - applyYamlConfig:
           path: ./monster-deployment.yaml
+  - name: deploy quote
+    steps:
       - applyYamlConfig:
           path: ./quote-deployment.yaml
+
+  - name: deploy say
+    steps:
       - applyYamlConfig:
-          path: ./say-deployment.yaml
+          path: ./quote-deployment.yaml
+
+  - name: deploy prometheus-config
+    steps:
       - applyYamlConfig:
           path: ./monitoring/prometheus/prometheus-configmap.yaml
+
+  - name: deploy prometheus
+    steps:
       - applyYamlConfig:
           path: ./monitoring/prometheus/prometheus-deployment.yaml
 
