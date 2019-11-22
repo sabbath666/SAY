@@ -2,7 +2,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  namespace: monitoring
+  namespace: dev
   name: prometheus-conf
 data:
   prometheus.yml: |
