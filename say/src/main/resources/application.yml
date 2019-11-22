@@ -5,3 +5,13 @@ spring:
     name: say-service
 monster.url: "http://monster:8080"
 quote.url:  "http://quote:8080"
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
