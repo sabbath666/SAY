@@ -1,58 +1,63 @@
 stages:
-  - name: build
-    steps:
-      - runScriptConfig:
-          image: maven:3.6.2-jdk-8
-          shellScript: cd monster;mvn clean package;
-      - runScriptConfig:
-          image: maven:3.6.2-jdk-8
-          shellScript: cd quote;mvn clean package;
-      - runScriptConfig:
-          image: maven:3.6.2-jdk-8
-          shellScript: cd say;mvn clean package;
+#  - name: build
+#    steps:
+#      - runScriptConfig:
+#          image: maven:3.6.2-jdk-8
+#          shellScript: cd monster;mvn clean package;
+#      - runScriptConfig:
+#          image: maven:3.6.2-jdk-8
+#          shellScript: cd quote;mvn clean package;
+#      - runScriptConfig:
+#          image: maven:3.6.2-jdk-8
+#          shellScript: cd say;mvn clean package;
+#
+#  - name: docker
+#    steps:
+#      - publishImageConfig:
+#          dockerfilePath: ./monster-dockerfile
+#          buildContext: .
+#          tag: sabbath666/monster:${CICD_GIT_COMMIT}
+#          pushRemote: true
+#          registry: index.docker.io
+#        env:
+#          PLUGIN_DEBUG: "true"
+#          PLUGIN_INSECURE: "true"
+#      - publishImageConfig:
+#          dockerfilePath: ./quote-dockerfile
+#          buildContext: .
+#          tag: sabbath666/quote:${CICD_GIT_COMMIT}
+#          pushRemote: true
+#          registry: index.docker.io
+#        env:
+#          PLUGIN_DEBUG: "true"
+#          PLUGIN_INSECURE: "true"
+#      - publishImageConfig:
+#          dockerfilePath: ./say-dockerfile
+#          buildContext: .
+#          tag: sabbath666/say:${CICD_GIT_COMMIT}
+#          pushRemote: true
+#          registry: index.docker.io
+#        env:
+#          PLUGIN_DEBUG: "true"
+#          PLUGIN_INSECURE: "true"
+#  - name: deploy monster
+#    steps:
+#      - applyYamlConfig:
+#          path: ./monster-deployment.yaml
+#  - name: deploy quote
+#    steps:
+#      - applyYamlConfig:
+#          path: ./quote-deployment.yaml
+#
+#  - name: deploy say
+#    steps:
+#      - applyYamlConfig:
+#          path: ./say-deployment.yaml
 
-  - name: docker
-    steps:
-      - publishImageConfig:
-          dockerfilePath: ./monster-dockerfile
-          buildContext: .
-          tag: sabbath666/monster:${CICD_GIT_COMMIT}
-          pushRemote: true
-          registry: index.docker.io
-        env:
-          PLUGIN_DEBUG: "true"
-          PLUGIN_INSECURE: "true"
-      - publishImageConfig:
-          dockerfilePath: ./quote-dockerfile
-          buildContext: .
-          tag: sabbath666/quote:${CICD_GIT_COMMIT}
-          pushRemote: true
-          registry: index.docker.io
-        env:
-          PLUGIN_DEBUG: "true"
-          PLUGIN_INSECURE: "true"
-      - publishImageConfig:
-          dockerfilePath: ./say-dockerfile
-          buildContext: .
-          tag: sabbath666/say:${CICD_GIT_COMMIT}
-          pushRemote: true
-          registry: index.docker.io
-        env:
-          PLUGIN_DEBUG: "true"
-          PLUGIN_INSECURE: "true"
-  - name: deploy monster
+  - name: deploy grafana
     steps:
       - applyYamlConfig:
-          path: ./monster-deployment.yaml
-  - name: deploy quote
-    steps:
-      - applyYamlConfig:
-          path: ./quote-deployment.yaml
-
-  - name: deploy say
-    steps:
-      - applyYamlConfig:
-          path: ./say-deployment.yaml
+          path: ./monitoring/grafana/grafana-deployment.yaml
 
 #  - name: deploy prometheus-config
 #    steps:
