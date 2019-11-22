@@ -2,7 +2,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: monitoring
+  namespace: dev
   name: grafana
 spec:
   selector:
@@ -29,16 +29,16 @@ spec:
       volumes:
         - name: grafana-conf
           hostPath:
-            path: ~/rancher/monitoring/grafana/conf
+            path: ~/rancher/dev/grafana/conf
         - name: grafana-data
           hostPath:
-            path: ~/rancher/monitoring/grafana/data
+            path: ~/rancher/dev/grafana/data
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: grafana
-  namespace: monitoring
+  namespace: dev
 spec:
   type: NodePort
   selector:
