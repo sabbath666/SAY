@@ -24,6 +24,10 @@ spec:
             - name: prometheus-conf
               mountPath: /etc/prometheus
               readOnly: true
+      volumes:
+        - name: prometheus-conf
+          configMap:
+            name: prometheus-conf
 ---
 apiVersion: v1
 kind: Service
