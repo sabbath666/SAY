@@ -52,7 +52,7 @@ stages:
   - name: deploy say
     steps:
       - applyYamlConfig:
-          path: ./quote-deployment.yaml
+          path: ./say-deployment.yaml
 
   - name: deploy prometheus-config
     steps:
