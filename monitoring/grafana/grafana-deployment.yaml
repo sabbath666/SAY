@@ -21,8 +21,8 @@ spec:
           ports:
             - containerPort: 3000
           volumeMounts:
-            - name: grafana-conf
-              mountPath: /etc/grafana
+#            - name: grafana-conf
+#              mountPath: /etc/grafana
             - name: grafana-data
               mountPath: /var/lib/grafana
 
