@@ -54,16 +54,16 @@ stages:
       - applyYamlConfig:
           path: ./say-deployment.yaml
 
-  - name: deploy prometheus-config
-    steps:
-      - applyYamlConfig:
-          path: ./monitoring/prometheus/prometheus-configmap.yaml
-
-  - name: deploy prometheus
-    steps:
-      - applyYamlConfig:
-          path: ./monitoring/prometheus/prometheus-deployment.yaml
-
+#  - name: deploy prometheus-config
+#    steps:
+#      - applyYamlConfig:
+#          path: ./monitoring/prometheus/prometheus-configmap.yaml
+#
+#  - name: deploy prometheus
+#    steps:
+#      - applyYamlConfig:
+#          path: ./monitoring/prometheus/prometheus-deployment.yaml
+#
 
 timeout: 60
 notification: {}
