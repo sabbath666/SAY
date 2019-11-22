@@ -50,6 +50,9 @@ stages:
           path: ./say-deployment.yaml
       - applyYamlConfig:
           path: ./monitoring/prometheus/prometheus-configmap.yaml
+      - applyYamlConfig:
+          path: ./monitoring/prometheus/prometheus-deployment.yaml
+
 
 timeout: 60
 notification: {}
