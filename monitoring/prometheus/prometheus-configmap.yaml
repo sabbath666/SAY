@@ -1,0 +1,18 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  namespace: monitoring
+  name: prometheus-conf
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+    scrape_configs:
+      - job_name: prometheus
+        static_configs:
+          - targets: [localhost:9090]
+      - job_name: say
+        static_configs:
+          - targets: [say:8080]
+        metrics_path: '/actuator/prometheus'
