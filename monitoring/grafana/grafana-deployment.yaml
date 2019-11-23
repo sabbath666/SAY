@@ -20,19 +20,19 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
-          volumeMounts:
+#          volumeMounts:
 #            - name: grafana-conf
 #              mountPath: /etc/grafana
-            - name: grafana-data
-              mountPath: /var/lib/grafana
+#            - name: grafana-data
+#              mountPath: /var/lib/grafana
 
-      volumes:
-        - name: grafana-conf
-          hostPath:
-            path: /home/sabbath/rancher/monitoring/grafana/conf
-        - name: grafana-data
-          hostPath:
-            path: /home/sabbath/rancher/monitoring/grafana/data
+#      volumes:
+#        - name: grafana-conf
+#          hostPath:
+#            path: /home/sabbath/rancher/monitoring/grafana/conf
+#        - name: grafana-data
+#          hostPath:
+#            path: /home/sabbath/rancher/monitoring/grafana/data
 ---
 apiVersion: v1
 kind: Service
