@@ -10,8 +10,7 @@ class MonsterSayServiceImpl:MonsterSayService {
     override fun say(message: String): String {
         val cowExecutor = CowExecutor().apply {
             setMessage(String(Base64.getDecoder().decode(message)))
-            setCowfile(randomStyle())
-            //
+//            setCowfile(randomStyle())
             setHtml(true)
         }
         return cowExecutor.execute()
