@@ -51,7 +51,7 @@ stages:
 
   - name: deploy say
     steps:
-      - applyaYamlConfig:
+      - applyYamlConfig:
           path: ./say-deployment.yaml
 
 #  - name: deploy grafana
